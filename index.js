@@ -37,5 +37,10 @@ io.on('connection',(socket)=>{
         console.log(data);
         io.sockets.emit('chat:mensaje', data);
     });
+
+    socket.on('chat:typing',(data)=>{
+        //console.log(data);
+        socket.broadcast.emit('chat:typing',data)
+    })
     
 });//empezamos a escuchar cuando se conecta

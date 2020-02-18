@@ -17,10 +17,20 @@ btn.addEventListener('click', function(){
     console.log(username.value, message.value);
 });
 
+message.addEventListener('keypress', function() {
+    console.log(username.value);
+    
+    socket.emit('chat:typing', username.value)
+});
+
 socket.on('chat:mensaje', function(data){
     console.log(data);
-    
+    actions.innerHTML = '';
     output.innerHTML += `<p>
     <strong>${data.username}</strong> :${data.message}
     </p>` 
+});
+
+socket.on('chat:typing', function(data){
+    actions.innerHTML = `<p><em>${data} is typing</em></p>`
 });

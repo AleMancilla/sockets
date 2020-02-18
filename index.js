@@ -32,5 +32,10 @@ const io = SocketIO(server);//mantiene la coneccion
 //#####websockets
 io.on('connection',(socket)=>{
     console.log('new connection', socket.id);
+
+    socket.on('chat:mensaje', (data)=>{
+        console.log(data);
+        
+    });
     
 });//empezamos a escuchar cuando se conecta

@@ -10,6 +10,9 @@ let output = document.getElementById('output');
 let actions = document.getElementById('actions');
 
 btn.addEventListener('click', function(){
+    socket.emit('chat:mensaje',{//emitir mensajes al servidor
+      message: message.value,
+      username: username.value  
+    });
     console.log(username.value, message.value);
-    
 });

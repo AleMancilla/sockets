@@ -35,7 +35,7 @@ io.on('connection',(socket)=>{
 
     socket.on('chat:mensaje', (data)=>{
         console.log(data);
-        
+        io.sockets.emit('chat:mensaje', data);
     });
     
 });//empezamos a escuchar cuando se conecta

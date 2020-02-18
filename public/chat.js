@@ -16,3 +16,11 @@ btn.addEventListener('click', function(){
     });
     console.log(username.value, message.value);
 });
+
+socket.on('chat:mensaje', function(data){
+    console.log(data);
+    
+    output.innerHTML += `<p>
+    <strong>${data.username}</strong> :${data.message}
+    </p>` 
+});
